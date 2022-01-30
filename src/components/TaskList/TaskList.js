@@ -2,15 +2,15 @@ import React from "react";
 import Task from "../Task";
 import "./TaskList.css";
 
-const TaskList = ({todos}) => {
+const TaskList = ({todos, onDeleted}) => {
     const elements = todos.map((item)=>{
-    const {id, className, ...itemProps} = item;
+    const {id, ...itemProps} = item;
     return (
-       <li key={id} className={className}>
-           <Task {...itemProps} />
-           <input type = "text" className="edit" defaultValue="Editing task" />
-       </li>
-       
+    
+       <span key={id}>
+           <Task {...itemProps} onDeleted ={() =>onDeleted(id)} />
+       </span>
+    
     );
 });
 return (
