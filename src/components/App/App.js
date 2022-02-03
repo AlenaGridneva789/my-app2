@@ -9,12 +9,12 @@ import Footer from '../Footer'
 
 export default class App extends Component {
   maxId = 100
-  date5 = new Date()
+  mydate = new Date()
   state = {
     todoData: [
-      this.createTodoItem('Completed task', this.date5),
-      this.createTodoItem('Editing task', this.date5),
-      this.createTodoItem('Active task', this.date5)
+      this.createTodoItem('Completed task', this.mydate),
+      this.createTodoItem('Editing task', this.mydate),
+      this.createTodoItem('Active task', this.mydate)
     ],
     filter: 'all'
   }
