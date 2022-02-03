@@ -1,22 +1,25 @@
-import React from "react";
-import Task from "../Task";
-import "./TaskList.css";
+import React from "react"
+import './TaskList.css'
+import Task from "../Task"
 
-const TaskList = ({todos, onDeleted}) => {
-    const elements = todos.map((item)=>{
-    const {id, ...itemProps} = item;
+const TaskList = ({ todos, onDeleted, onToggleDone }) => {
+  
+  const elements = todos.map((item) => {
+    const { id, ...itemProps } = item
     return (
-    
-       <span key={id}>
-           <Task {...itemProps} onDeleted ={() =>onDeleted(id)} />
-       </span>
-    
-    );
-});
-return (
+      <Task
+        key={id}
+        {...itemProps}
+        onDeleted={() => onDeleted(id)}
+        onToggleDone={() => onToggleDone(id)} />
+    )
+  })
+
+  return (
     <ul className="todo-list">
-        {elements}
+      {elements}
     </ul>
-)
-};
-export default TaskList;
+  )
+}
+
+export default TaskList
