@@ -1,14 +1,28 @@
 import React, { Component } from "react"
 import './Task.css'
-
+import propTypes from 'prop-types'
+import { faIR } from "date-fns/locale"
 
 export default class Task extends Component {
-
+  static defaultProps = {
+  label: '',
+  onDeleted: ()=>{},
+  onToggleDone: ()=>{},
+  completed: false,
+  date: ''
+  }
+  static propTypes = {
+    label: propTypes.string,
+    onDeleted: propTypes.func,
+    onToggleDone: propTypes.func,
+    completed: propTypes.bool,
+    date: propTypes.string
+  }
   render() {
 
     const { label, onDeleted, onToggleDone, completed, date } = this.props
 
-    console.log(typeof date);
+   
     let classNames = 'active'
     if (completed) {
       classNames = 'completed'

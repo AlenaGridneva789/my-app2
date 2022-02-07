@@ -19,14 +19,16 @@ export default class App extends Component {
     filter: 'all'
   }
   createTodoItem (label, createDate) {
-    console.log(createDate);
-    const date = formatDistanceToNow (new Date(createDate), { addSuffix: true, includeSeconds: true })
+    
+    const date = formatDistanceToNow (new Date(createDate), {  includeSeconds: true })
+    
     return {
       label: label,
       completed: false,
       id: this.maxId++,
       date: date
     }
+    
   }
   
   deleteItem = (id) => {
@@ -89,7 +91,9 @@ export default class App extends Component {
     const visibleItems = this.filterItems(todoData, filter)
 
     return (
+      
       <section className='todoapp'>
+        
         <header className="header">
           <h1>todos</h1>
           <NewTaskForm 

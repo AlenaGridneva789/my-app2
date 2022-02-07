@@ -1,9 +1,14 @@
 import React, {Component} from "react"
-
+import propTypes from 'prop-types'
 import './NewTaskForm.css'
 
 export default class NewTaskForm extends Component {
-  
+  static defaultProps = {
+   onItemAdded: ()=>{}
+  }
+  static propTypes = {
+    onItemAdded: propTypes.func
+  }
 
   state = {
     label: ''

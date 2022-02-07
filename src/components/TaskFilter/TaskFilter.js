@@ -1,7 +1,7 @@
 import React from "react"
-
-
+import propTypes from 'prop-types'
 import './TaskFilter.css'
+
 const filterButtons = [
   {name: 'all', label: 'All'},
   {name: 'active', label: 'Active' },
@@ -34,6 +34,13 @@ const TaskFilter = (props) => {
     </ul>
   )
 }
-
+TaskFilter.defaultProps = {
+filter: 'all',
+onFilterItems: () => {}
+}
+TaskFilter.propTypes = {
+filter: propTypes.string,
+onFilterItems: propTypes.func
+}
 
 export default TaskFilter
